@@ -39,9 +39,9 @@ Look down to "Available" and select the one named "GnomerPyle-PT" by clicking th
 
 Click Next. This will move you to select the "flavor" of your VM. (the hardware you are allocating)
 
-At the magnifying glass (search) area of the "Available" area, type "es2" 
+At the magnifying glass (search) area of the "Available" area, type "m1" 
 
-From the filtered list, select "mem.es2" by clicking the red up-arrow icon to the right.
+From the filtered list, select "m1.small" by clicking the red up-arrow icon to the right.
 Click Next until you reach the "Security Groups" category.
 
 Press next.

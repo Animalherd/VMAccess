@@ -63,6 +63,12 @@ Take note of the IP address it assigns, you will need this to establish your SSH
 Open a terminal on your desktop.
 type cd ~/.ssh    
 type chmod 600 id_rsa
+Next type:  ssh -l  ubuntu [your assigned ip address without the brackets, ex: 10.50.23.55]
+once the prompt displays ubuntu@gnomerpyle, enter the following:
+vncserver -kill :1
+vncserver -localhost
+
+####this will restart the Virtual Networking Computer service to ensure it displays properly.#####
 
 Open a new terminal and type:  ssh -L 59000:localhost:5901 -C -N -l ubuntu [your assigned ip address without the brackets, ex: 10.50.23.55]
 

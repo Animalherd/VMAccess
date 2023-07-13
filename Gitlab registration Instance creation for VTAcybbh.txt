@@ -35,7 +35,7 @@ Click Next
 
 In the "Select Boot Source" drop down menu at the top, change it from "Image" to "Instance Snapshot".
 
-Look down to "Available" and select the one named "GnomerPyle-PT" by clicking the red up-arrow icon on the right side. This will move the instance up to the "Allocated" area of your screen. 
+Look down to "Available" and select the one named "GnomerPyle-P.T." by clicking the red up-arrow icon on the right side. This will move the instance up to the "Allocated" area of your screen. 
 
 Click Next. This will move you to select the "flavor" of your VM. (the hardware you are allocating)
 
@@ -61,10 +61,9 @@ Click the "Launch Instance" button.  This will build your VM.  It will take a fe
 Take note of the IP address it assigns, you will need this to establish your SSH connection and allow you to access your Vitual Networking Computing experience.
 
 Open a terminal on your desktop.
-Type ssh -l ubuntu (ip address of your VM)
-Type yes at the prompt to add that IP address to your machine's trusted connections.
-The prompt will change to "ubuntu@gnomerpyle:~$"
-Type vncserver -localhost and hit enter
+type cd ~/.ssh    
+type chmod 600 id_rsa
+
 Open a new terminal and type:  ssh -L 59000:localhost:5901 -C -N -l ubuntu [your assigned ip address without the brackets, ex: 10.50.23.55]
 
 Press enter. This will establish the tunnel to the VM  [DO NOT CLOSE THE TERMINAL!!!]
@@ -72,46 +71,4 @@ Use Remmina to remotely access your VM. Select VNC at the drop down and type:
 localhost:59000    (this will connect to the destination port 5901)
 Type password for the VNC password
 To exit the VM session, press Ctrl C on the 2nd terminal window.
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-IF THE SSH SESSION IS CLOSED WITH A MESSAGE LIKE THIS:
-
-The authenticity of host '10.50.23.55 (10.50.23.55)' can't be established.
-ECDSA key fingerprint is SHA256:u2hSUOC+6qKxlGTZIlMAvb9AgjPtmhW+NI2Qn2FclXU.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.50.23.55' (ECDSA) to the list of known hosts.
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Permissions 0660 for '/home/ernest.a.herd47/.ssh/id_rsa' are too open.
-It is required that your private key files are NOT accessible by others.
-This private key will be ignored.
-Load key "/home/ernest.a.herd47/.ssh/id_rsa": bad permissions
-ubuntu@10.50.23.55: Permission denied (publickey).
-
-You will need to fix this error.
-Use the following steps:
-
-cd ~/.ssh
-ls -l
-      
-      #  (you will see):
-      # total 12
-      # -rw-rw---- 1 ernest.a.herd47 ernest.a.herd47 1676 Jun  9 09:20 id_rsa
-      # -rw-r--r-- 1 ernest.a.herd47 ernest.a.herd47  444 Jun  9 09:21 known_hosts
-      
-chmod 600 id_rsa
-ls -l    
-	# (Verify that the changes took efect)
-	#total 12
-	#-rw------- 1 ernest.a.herd47 ernest.a.herd47 1676 Jun  9 09:20 id_rsa
-	#-rw-r--r-- 1 ernest.a.herd47 ernest.a.herd47  444 Jun  9 09:21 known_hosts
-
-Attempt your SSH tunnel again.
-
-
 
